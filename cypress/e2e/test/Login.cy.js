@@ -4,7 +4,10 @@ describe('Login', () => {
     cy.visit('/', { timeout: 5000 })
   })
 
-  it('ok', () => {
-
-  })
+  it('Login Page - Verification', () => {
+    cy.verifyPageComponents();
+  });
+  it('Login Error', () => {
+    cy.clickLogin();
+  });
 })

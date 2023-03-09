@@ -5,6 +5,7 @@ const LABELS = {
     USERNAME: 'Username',
     PASSWORD: 'Password',
     LOGIN: 'Login',
+    ERROR: 'Epic sadface: Username is required',
 };
 
 class Login {
@@ -14,10 +15,10 @@ class Login {
 
     verifyComponents() {
         //Verify Components
-        this.select.LogoHeader().should('exist').should('contain.placeholder', LABELS.SWAG_HEADER);
-        this.select.UsernameField().should('exist').should('contain.placeholder', LABELS.USERNAME);
-        this.select.PasswordField().should('exist').should('contain.placeholder', LABELS.PASSWORD);
-        this.select.LoginButton().should('exist').should('contain.placeholder', LABELS.LOGIN);
+        this.select.LogoHeader().should('exist').contains(LABELS.SWAG_HEADER);
+        this.select.UsernameField().should('exist').should('have.attr', 'placeholder', 'Username');
+        this.select.PasswordField().should('exist').should('have.attr', 'placeholder', 'Password');
+        this.select.LoginButton().should('exist').contains(LABELS.LOGIN);
     }
     clickTextFieldUsrn() {
         this.select.UsernameField().click();
@@ -27,6 +28,11 @@ class Login {
     }
     clickLoginBtn() {
         this.select.LoginButton().click();
+    }
+    verifyErrorComponents() {
+        this.select.LoginError().should('exist').contains(LABELS.ERROR);
+        this.select.LoginUsrnX().should('exist').should('have.class', 'svg-inline--fa fa-times-circle fa-w-16 error_icon');
+        this.select.LoginPswdX().should('exist').should('have.class', 'svg-inline--fa fa-times-circle fa-w-16 error_icon');
     }
 }
 export default {
