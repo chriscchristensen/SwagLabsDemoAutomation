@@ -5,7 +5,10 @@ const LABELS = {
     USERNAME: 'Username',
     PASSWORD: 'Password',
     LOGIN: 'Login',
-    ERROR: 'Epic sadface: Username is required',
+    USERNAMEERROR: 'Epic sadface: Username is required',
+    PASSWORDERROR: 'Epic sadface: Password is required',
+    USERNAME: 'standard_user',
+    PASSWORD: 'secret_sauce',
 };
 
 class Login {
@@ -23,16 +26,35 @@ class Login {
     clickTextFieldUsrn() {
         this.select.UsernameField().click();
     }
+    typeTextFieldUsrn() {
+        this.select.UsernameField().type(LABELS.USERNAME);
+    }
     clickTextFieldPswrd() {
         this.select.PasswordField().click();
+    }
+    typeTextFieldPswrd() {
+        this.select.PasswordField().type(LABELS.PASSWORD);
     }
     clickLoginBtn() {
         this.select.LoginButton().click();
     }
     verifyErrorComponents() {
-        this.select.LoginError().should('exist').contains(LABELS.ERROR);
+        this.select.LoginError().should('exist').contains(LABELS.USERNAMEERROR);
         this.select.LoginUsrnX().should('exist').should('have.class', 'svg-inline--fa fa-times-circle fa-w-16 error_icon');
         this.select.LoginPswdX().should('exist').should('have.class', 'svg-inline--fa fa-times-circle fa-w-16 error_icon');
+    }
+    verifyErrorUsernameComponents() {
+        this.select.LoginError().should('exist').contains(LABELS.PASSWORDERROR);
+        this.select.LoginUsrnX().should('exist').should('have.class', 'svg-inline--fa fa-times-circle fa-w-16 error_icon');
+        this.select.LoginPswdX().should('exist').should('have.class', 'svg-inline--fa fa-times-circle fa-w-16 error_icon');
+    }
+    verifyErrorPasswordComponents() {
+        this.select.LoginError().should('exist').contains(LABELS.USERNAMEERROR);
+        this.select.LoginUsrnX().should('exist').should('have.class', 'svg-inline--fa fa-times-circle fa-w-16 error_icon');
+        this.select.LoginPswdX().should('exist').should('have.class', 'svg-inline--fa fa-times-circle fa-w-16 error_icon');
+    }
+    verifyRedirectOnLoginURL() {
+        this.select.LoginRedirect()
     }
 }
 export default {

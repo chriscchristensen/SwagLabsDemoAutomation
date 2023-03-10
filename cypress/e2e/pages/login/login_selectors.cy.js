@@ -20,6 +20,9 @@ const LoginSelectors = {
     LoginPswdX: () => {
         return cy.get(':nth-child(2) > .svg-inline--fa');
     },
+    LoginRedirect: () => {
+        return cy.url().should('eq', 'https://www.saucedemo.com/inventory.html')
+    }
 };
 
 export default { LoginSelectors };
