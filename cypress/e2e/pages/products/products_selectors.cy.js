@@ -15,36 +15,24 @@ const ProductsSelectors = {
         return cy.get('.shopping_cart_link')
     },
     TwitterButton: () => {
-        return cy.get('.social_twitter')
+        return cy.get('.social_twitter > a')
     },
     FacebookButton: () => {
-        return cy.get('.social_facebook')
+        return cy.get('.social_facebook > a')
     },
     IndeedButton: () => {
-        return cy.get('.social_linkedin')
+        return cy.get('.social_linkedin > a')
     },
     FooterText: () => {
         return cy.get('.footer_copy')
     },
     //This element doesn't exist.
     ToSButton: () => {
-        return cy.get('ToS').then(($ToS) => {
-            if ($ToS.find("#Terms_Of_Service").length > 0 ) {
-                cy.get('#Terms_Of_Service')
-            } else {
-                cy.softAssert(true, false, '#Terms_Of_Service is NOT FOUND');
-            }
-        })
+        return cy.get('#Terms_Of_Service')
     },
     //This element doesn't exist.
     PPButton: () => {
-        return cy.get('PPPolicy').then(($ToS) => {
-            if ($ToS.find("##Privacy_Policy").length > 0 ) {
-                cy.get('##Privacy_Policy')
-            } else {
-                cy.softAssert(true, false, '#Terms_Of_Service is NOT FOUND');
-            }
-        })
+        return cy.get('#Privacy_Policy')
     },
     InventoryList: () => {
         return cy.get('.inventory_list')
