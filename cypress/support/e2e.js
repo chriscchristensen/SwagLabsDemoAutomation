@@ -16,6 +16,7 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 import '../e2e/commands/login_commands.cy'
+import '../e2e/commands/products_commands.cy'
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

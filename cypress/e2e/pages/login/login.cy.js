@@ -1,4 +1,4 @@
-import { LoginSelectors } from "./login_selectors.cy.js";
+import { LoginSelectors } from "./login_selectors.cy";
 
 const LABELS = {
     SWAG_HEADER: 'Swag Labs',

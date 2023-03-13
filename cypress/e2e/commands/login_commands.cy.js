@@ -1,4 +1,4 @@
-import { Login } from '../pages/login/login.cy';
+import { Login } from '../pages/login/login.cy.js';
 
 const login = new Login();
 
