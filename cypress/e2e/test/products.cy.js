@@ -10,4 +10,7 @@ describe('Products', () => {
     it('Products Page - Verification', () => {
         cy.verifyProductPageComponents();
       });
+    it('addRemoveFromCart', () => {
+        cy.addRemoveFromCart();
+    })
   })

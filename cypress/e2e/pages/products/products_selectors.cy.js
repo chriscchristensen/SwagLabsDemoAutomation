@@ -28,11 +28,23 @@ const ProductsSelectors = {
     },
     //This element doesn't exist.
     ToSButton: () => {
-        return cy.get('#Terms_Of_Service')
+        cy.get('.footer_copy').then($body => {
+            if ($body.find("#Terms_Of_Service").length > 0) {
+                cy.log("Terms of Service Link does exist.")
+            } else {
+                cy.log("Terms of Service Link doesn't exist.")
+            }
+        })
     },
     //This element doesn't exist.
     PPButton: () => {
-        return cy.get('#Privacy_Policy')
+        cy.get('.footer_copy').then($body => {
+            if ($body.find("#Privacy_Policy").length > 0) {
+                cy.log("Privacy Policy Link does exist.")
+            } else {
+                cy.log("Terms of Service Link doesn't exist.")
+            }
+        })
     },
     InventoryList: () => {
         return cy.get('.inventory_list')
@@ -50,8 +62,17 @@ const ProductsSelectors = {
         return cy.get('.inventory_item_price')
     },
     InventoryItemAddToCartButton: () => {
-        return cy.get('.btn btn_primary btn_small btn_inventory')
+        return cy.get(':nth-child(1) > .inventory_item_description > .pricebar')
     },
+    InventoryItemRemoveFromCartButton: () => {
+        return cy.get(':nth-child(1) > .inventory_item_description > .pricebar')
+    },
+    ShoppingCartBadge: () => {
+        return cy.get('.shopping_cart_badge')
+    },
+    ShoppingCartIcon: () => {
+        return cy.get('.shopping_cart_link')
+    }
 };
 
 export default { ProductsSelectors };
