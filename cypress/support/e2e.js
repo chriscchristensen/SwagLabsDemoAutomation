@@ -17,7 +17,8 @@
 import './commands'
 import '../e2e/commands/login_commands.cy'
 import '../e2e/commands/products_commands.cy'
-import "./cyLogCustomStyles";
+import "./cyLogCustomStyles"
+import "../e2e/commands/cart_commands.cy"
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
