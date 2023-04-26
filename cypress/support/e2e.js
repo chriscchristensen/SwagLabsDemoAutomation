@@ -19,6 +19,7 @@ import '../e2e/commands/login_commands.cy'
 import '../e2e/commands/products_commands.cy'
 import "./cyLogCustomStyles"
 import "../e2e/commands/cart_commands.cy"
+import "../support/step_definitions/login-steps.js"
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')

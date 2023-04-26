@@ -22,6 +22,9 @@ const LoginSelectors = {
     },
     LoginRedirect: () => {
         return cy.url().should('eq', 'https://www.saucedemo.com/inventory.html')
+    },
+    navigateToHome() {
+        cy.visit('/')
     }
 };
 
