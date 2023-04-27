@@ -1,3 +1,17 @@
+//exporting this to to get the products page feature files working.
+export class ProductsPage {
+    ProductsPageHeaderText(expectedLogoText) {
+        cy.get('.title').should('have.text', expectedLogoText);
+    }
+    ProductsPageHeaderTextNonExist() {
+        cy.get('.title').should('not.exist')
+    }
+}
+
+
+
+
+//The below is for the older strict POM without the Gherkin.
 const ProductsSelectors = {
     LogoHeader: () => {
         return cy.get('.app_logo')

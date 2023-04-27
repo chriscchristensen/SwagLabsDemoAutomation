@@ -1,4 +1,4 @@
-//exporting this to to get the feature files working.
+//exporting this to to get the login page feature files working.
 export class LoginPage {
 
     navigateToHome() {
@@ -15,6 +15,33 @@ export class LoginPage {
     }
     LoginButton(expectedText) {
         cy.get('#login-button').should('have.value', expectedText);
+    }
+    UserNameFieldType(typedText) {
+        cy.get('#user-name').type(typedText);
+    }
+    PasswordFieldType(typedText) {
+        cy.get('#password').type(typedText);
+    }
+    ClickLoginButton(clickedButton) {
+        cy.get('#login-button').should('have.attr', 'value', clickedButton).click();
+    }
+    UserNameX() {
+        cy.get('form > :nth-child(1) > .svg-inline--fa').should('exist')
+    }
+    PasswordX() {
+        cy.get('form > :nth-child(1) > .svg-inline--fa').should('exist')
+    }
+    UserNameError(expectedText) {
+        cy.get('[data-test="error"]').should('have.text', expectedText)
+    }
+    PasswordError(expectedText) {
+        cy.get('[data-test="error"]').should('have.text', expectedText)
+    }
+    BankUserNameError(expectedText) {
+        cy.get('[data-test="error"]').should('have.text', expectedText)
+    }
+    BlankPasswordError(expectedText) {
+        cy.get('[data-test="error"]').should('have.text', expectedText)
     }
 }
 
